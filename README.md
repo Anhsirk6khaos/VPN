@@ -10,7 +10,9 @@ To run:
 # General Compilation code:
 
 gcc -c -Wall -std=c99 openssl_hostname_validation.c
+
 gcc -g -I/usr/local/ssl/include -c tlsvpnfin.c
+
 gcc -g -I/usr/local/ssl/include openssl_hostname_validation.o tlsvpnfin.o -o tlsvpnfin -L/usr/local/ssl/lib  -lssl -lcrypto -ldl
 
 # Server code:
