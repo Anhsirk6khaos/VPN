@@ -19,13 +19,19 @@ gcc -g -I/usr/local/ssl/include openssl_hostname_validation.o tlsvpnfin.o -o tls
 
 
 sudo ./tlsvpnfin-i tun0 -s -d
+
 sudo ip addr add 10.0.1.1/24 dev tun0
+
 sudo ifconfig tun0 up
+
 sudo route add -net 10.0.2.0 netmask 255.255.255.0 dev tun0
 
 # Client code:
 
 sudo ./tlsvpnfin -i tun0 -c 192.168.15.4 -d
+
 sudo ip addr add 10.0.2.1/24 dev tun0
+
 sudo ifconfig tun0 up
+
 sudo route add -net 10.0.1.0 netmask 255.255.255.0 dev tun0
